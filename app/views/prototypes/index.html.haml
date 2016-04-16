@@ -1,3 +1,5 @@
+= render partial:"layouts/header"
+
 .jumbotron
   .container.text-center
     = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
@@ -169,3 +171,5 @@
     %li
       %a{"aria-label" => "Next", href: "#"}
         %span{"aria-hidden" => "true"} »
+
+  = render partial:"layouts/footer"
