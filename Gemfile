@@ -6,7 +6,7 @@ gem 'rails', '4.2.5'
 # Use mysql as the database for Active Record
 gem 'mysql2', '0.3.18'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'# Use Uglifier as compressor for JavaScript assets
+gem 'sass-rails', '>= 3.2'# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -47,3 +47,7 @@ end
   gem 'pry-rails'
   gem 'compass-rails','~> 2.0'
   gem 'sprockets', '2.11.0'
+  gem 'haml-rails'
+  gem 'erb2haml'
+  gem 'bootstrap-sass', '~> 3.3.6'
+  gem 'devise'
