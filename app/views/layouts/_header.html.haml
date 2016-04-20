@@ -15,16 +15,18 @@
       - else
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
+            %a.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", href: "#", role: "button"}
               UserName
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                %a{href: "#"} Profile Edit
+                %a{href: "/users/:id"} My Page
               %li
-                %a{href: "#"} Logout
+                %a{href: "/users/:id/edit"} Profile Edit
+              %li
+                %a{href: "/users/sign_out"} Logout
           %li
             .btn.btn-primary.navbar-btn
-              %a{href: "/proto/new"}
+              %a{href: "/prototypes/new"} 
                 New Proto
 
