@@ -16,17 +16,18 @@
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", href: "#", role: "button"}
-              UserName
+              = current_user.username
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                %a{href: "/users/:id"} My Page
+                = link_to "My page", user_path(current_user)
               %li
-                %a{href: "/users/:id/edit"} Profile Edit
+                / = link_to "Profile Edit ",edit_user_path, method: "get"
+                = link_to "Profile Edit ",edit_user_path(current_user)
               %li
-                %a{href: "/users/sign_out"} Logout
+                = link_to "Logout ", destroy_user_session_path, method: "delete"
           %li
             .btn.btn-primary.navbar-btn
-              %a{href: "/prototypes/new"} 
-                New Proto
+              = link_to "New Proto",new_prototype_path, method: "get"
+
 
