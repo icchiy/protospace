@@ -4,16 +4,16 @@
     = devise_error_messages!
     %h2.form-signin-heading Please sign in
     %label.sr-only{for: "inputEmail"} Email address
-    = f.email_field :email, id: "inputEmail",class:"form-control",autofocus: "autofocus", placeholder: "Email address",required: ""
+    = f.email_field :email, id: "inputEmail", class:"form-control",autofocus: "autofocus", placeholder: "Email address",required: ""
     %label.sr-only{for: "inputPassword"} Password
-    = f.password_field :password, id: "inputPassword",class:"form-control",autofocus: "off", placeholder: "Email address",required: ""
+    = f.password_field :password, id: "inputPassword", class:"form-control", autofocus: "off", placeholder: "Email address", required: ""
 
     .checkbox
       %label
-        = check_box_tag :checkbox,value: "remember-me"
+        = check_box_tag :checkbox, value: "remember-me"
         Remember me
-    = button_tag :sign_in,class: "btn btn-lg btn-primary btn-block"
+    = button_tag :sign_in, class: "btn btn-lg btn-primary btn-block"
   .text-center
     %p
       Not a member?
-      = link_to "/users/new",new_user_path, method: "get"
+      = link_to "sign_up", new_user_path, method: "get"

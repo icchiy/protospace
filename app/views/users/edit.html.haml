@@ -1,5 +1,5 @@
 / 編集画面
-= form_for current_user,:html => {:class => "container user-new"} do |f|
+= form_for current_user, :html => {:class => "container user-new"} do |f|
   / = devise_error_messages!
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
@@ -7,26 +7,24 @@
         %h2 Edit Profile
         .user-name_image.row
           .user-name.col-md-10
-            = f.text_field :username,placeholder: "username"
+            = f.text_field :username, placeholder: "username"
           .user-image.col-md-2
             %button.btn.btn-primary Change image
             %input{type: "file"}/
-        = f.email_field :email, class: 'user-email',placeholder: "#{current_user.email}",value: "#{current_user.email}"
-        = f.password_field :password, class: 'user-password',placeholder: "Password"
+        = f.email_field :email, class: 'user-email', placeholder: current_user.email, value: current_user.email
+        = f.password_field :password, class: 'user-password', placeholder: "Password"
       .col-md-12
         %h4 Member of
         .user-user-member.row
           .user-name.col-md-12
-            = f.text_field :member_of,placeholder: "Member",value: "#{current_user.member_of}"
+            = f.text_field :member_of, placeholder: "Member", value: current_user.member_of
         %h4 Profile
         .user-user-profile.row
           .user-name.col-md-12
-            = f.text_area :profile,cols: "30", name: "user[profile]", placeholder: "Profile", rows: "4",value: "#{current_user.profile}"
+            = f.text_area :profile, cols: "30", placeholder: "Profile", rows: "4", value: current_user.profile
         %h4 Works
         .user-name_image.row
           .user-name.col-md-12
-            = f.text_area :works,id: "user_Works",cols: "30", name: "user[works]", placeholder: "Works", rows: "4",value: "#{current_user.works}"
+            = f.text_area :works, id: "user_Works", cols: "30", placeholder: "Works", rows: "4", value: current_user.works
     .row.text-center.user-btn
-      = button_tag :save,class: "btn btn-lg btn-primary btn-block"
-
-/ = button_tag "Save", :html => {:class => ".btn.btn-lg.btn-primary.btn-block"}
+      = f.submit "save", class: "btn btn-lg btn-primary btn-block"

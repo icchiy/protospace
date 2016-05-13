@@ -11,41 +11,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
     if current_user.id
-      user.update(update_params)
+      current_user.update(update_params)
+      redirect_to current_user, notice: 'update successfully.'
     else
-    # redirect_to edit_user_path, alert: "couldn't update"
-    redirect_to edit_user_path, alert: 'ログインに失敗しました'
+    redirect_to edit_user_path(current_user), alert: "couldn't update"
     end
   end
 
   def new
     @user = User.new
-    # @user.save
-  end
-
- #  def create
- #    if  User.create(create_params).merge(user_id: current_user.id)
- #    else
- #      redirect_to new_user_path, alert: "couldn't sign_up"
- #   end
- #   binding.pry
- # end
-
-
-  private
-  def update_params
-    params.require(:user).permit(:username, :email, :password,:profile,:works,:member_of)
-  end
-
-  def create_params
-    params.permit(:username, :email, :password,:profile,:works,:member_of)
-  end
-
-  def move_to_index
-    redirect_to :action => "index" unless user_signed_in?
   end
 end
-
-
