@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
 
   private
   def update_params
-    params.require(:user).permit(:username, :email,:profile,:works,:member_of)
+    params.require(:user).permit(:username, :email, :profile,:works, :member_of)
   end
   def move_to_index
-    redirect_to controller: :prototypes, action: :index unless user_signed_in?
+    redirect_to prototypes_path unless user_signed_in?
   end
 end
