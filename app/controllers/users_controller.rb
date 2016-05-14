@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :new]
-
+  before_action :set_user, :move_to_index, except: [:index, :new]
   def show
-    @user = User.find(params[:id])
+    set_user
   end
 
   def edit
-    @user = User.find(params[:id])
+    set_user
   end
 
   def update

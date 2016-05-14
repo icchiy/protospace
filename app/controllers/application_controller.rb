@@ -15,4 +15,7 @@ class ApplicationController < ActionController::Base
   def move_to_index
     redirect_to prototypes_path unless user_signed_in?
   end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
