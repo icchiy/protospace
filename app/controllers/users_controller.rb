@@ -2,11 +2,9 @@ class UsersController < ApplicationController
 
   before_action :set_user, :move_to_index, except: [:index, :new]
   def show
-    set_user
   end
 
   def edit
-    set_user
   end
 
   def update
