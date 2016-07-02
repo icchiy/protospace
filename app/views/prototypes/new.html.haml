@@ -1,12 +1,13 @@
-%form.container.proto-new{action: ""}
+= form_for @prototype, :html => {:class => " container proto-new"} do |f|
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
-        %input.proto-new-title{type: "text", placeholder: "Title", name: "title"}/
+        = f.text_field :name, placeholder: "Title", :html => {:class => "proto-new-title"}
     .row
       .col-md-12
         .cover-image-upload
-          %input{type: "file", name: "image"}/
+          = f.fields_for :images do |image|
+            %input{type: "file", name: "image"}/
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
@@ -20,9 +21,9 @@
               %span +
     .row.proto-description
       .col-md-12
-        %input{type: "text", placeholder: "Catch Copy", name: "catch_copy" }/
+        = f.text_field :catch_copy, placeholder: "Catch Copy"
       .col-md-12
-        %textarea{name: "", cols: "30", rows: "4", placeholder: "Concept", name: "consept"}
+        = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
       .col-md-12
         %h4 Tag List
         .row
@@ -33,4 +34,4 @@
           .col-md-3
             %input{type: "text", placeholder: "Application"}/
     .row.text-center.proto-btn
-      %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish
+      = f.submit "save", class: "btn btn-lg btn-primary btn-block", type: "submit"
